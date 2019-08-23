@@ -1,0 +1,38 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+      <context:annotation-config/>
+<!--prototype scope-->
+      <bean id="a" class="config.byxml.beans.A" scope="prototype"/>
+<!--setter injection-->
+      <bean id="b" class="config.byxml.beans.B">
+            <property name="BName">
+                  <value>testBName</value>
+            </property>
+      </bean>
+<!--constructor injection-->
+      <bean id="c" class="config.byxml.beans.C">
+            <constructor-arg name="cName" value="testCName"/>
+      </bean>
+<!--for qualifier annotation-->
+      <bean id="d" class="config.byxml.beans.D"/>
+
+      <bean id="e1" class="config.byxml.beans.E">
+            <property name="EName" value="eName1" />
+      </bean>
+
+      <bean id="e2" class="config.byxml.beans.E">
+            <property name="EName" value="eName2" />
+      </bean>
+</beans>
